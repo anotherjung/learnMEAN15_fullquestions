@@ -2,9 +2,9 @@
 var mongoose = require('mongoose');
 
 //start model 
-var FriendSchema = new mongoose.Schema({
+var QuestionSchema = new mongoose.Schema({
 	name: String,
 	created: String
 })
-var Friend = mongoose.model('Friend', FriendSchema);
+var Question = mongoose.model('Question', QuestionSchema);
 //ends model

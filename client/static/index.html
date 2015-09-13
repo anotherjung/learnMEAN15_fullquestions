@@ -4,7 +4,10 @@
 </head>
 <body ng-app='myApp'>
 	<!--5 add navbar for $routeProvider -->
-	 <a href="#/">Friends</a> 
+	<div class="container">
+	 <a href="#/">Home</a> | <a href="#/addQuestion">add a question</a> <span class="right"> <a href="#/logout">logout</a></span>
+	</div>
+
 	<div ng-view="">
 	</div>
 
@@ -14,7 +17,12 @@
 	<!--5 add lib file-->
 	<script src='js/angular-route.js'/></script>
 	<!--7 move angular code -->
-	<script src='js/app.js'/></script>
+	<script src='questions/app.js'/></script>
+	<script src='questions/userController.js'/></script>
+	<script src='questions/userFactory.js'/></script>	
+	<script src='questions/questionController.js'/></script>
+	<script src='questions/questionFactory.js'/></script>	
+	<script src='questions/thisquestionController.js'/></script>	
 
 </body>
 </html>

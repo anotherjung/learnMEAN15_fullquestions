@@ -1,10 +1,12 @@
 //MVC1a for routes
 var mongoose = require('mongoose');
-var Friend = mongoose.model('Friend');
+var Question = mongoose.model('Question');
 //MVC2h moved to model
 
 //MVC2c for controller
-var friends = require('../controllers/friends.js');
+var questions = require('../controllers/questions.js');
+var users = require('../controllers/users.js');
+
 
 //start MVC1d export
 module.exports = function(app) {
@@ -18,15 +20,16 @@ module.exports = function(app) {
 	//root route to render the index.ejs view
 	app.get('/', function(req, res) {
 		res.render("index");
+		console.log('home page loaded');
 	})
 
 	//route to display data from db
-	app.get('/friends', function (req, res) {
+	app.get('/getquestions', function (req, res) {
 		//hard-coded json data
 		// res.json([{name: "batman", number:11}, {name: "superman", number:22}])
 
 		//MVC ask controller for data
-		friends.getfriends(req,res)
+		questions.getquestions(req,res)
 
 		//MVC-test
 		// Quote.find({}, function (err, quotes) {
@@ -34,10 +37,22 @@ module.exports = function(app) {
 		// });
 	})
 	//route to add data to db
-	app.post('/addfriend', function (req, res) {
-		console.log('rou addfriend', req.body)
-		friends.addfriend(req,res)
+	app.post('/addquestion', function (req, res) {
+		console.log('rou addquestion', req.body)
+		questions.addquestion(req,res)
 	})
+	//route login
+	app.post('/login', function (req, res) {
+		console.log('rou login', req.body)
+		users.login(req, res)
+	})
+
+	//route to add data to db
+	app.get('/getquestion', function (req, res) {
+		console.log('rou getquestion', res.body)
+		questions.getOneQuestion(req,res)
+	})
+
 
 	//ends routes
 

@@ -1,7 +1,7 @@
 //MVC3a always reuse this
 var mongoose = require('mongoose');
 var fs = require('fs');
-mongoose.connect('mongodb://localhost/FullMean_Friends');
+mongoose.connect('mongodb://localhost/fullmean_questions');
 
 var path = require('path');
 var models_path = path.join(__dirname, './../models');

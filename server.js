@@ -19,6 +19,6 @@ app.use(express.static(path.join(__dirname, "./client/static")));
 	//ends MVC require
 
 //tell express to listen on port 
-app.listen(8000, function() {
-	console.log("listening on port 8000");
+app.listen(8080, function() {
+	console.log("listening on port 8080");
 })
