@@ -1,6 +1,6 @@
 
 //5b add factory to provide data to controller
-myApp.factory('answerFactory', function ($http, $location, $routeParams) {
+myApp.factory('answerFactory', function ($http, $location, $route, $routeParams) {
 	//3 factory is a function that returns an object literal
 	//7 add some data
 	// var answers = [
@@ -26,8 +26,8 @@ myApp.factory('answerFactory', function ($http, $location, $routeParams) {
 			callback(output);
 			
 			//reload the page to fresh the data
-			// $location.path('showQuestions');
-			$location.path('showQuestion/'+thisQuestion);
+			$location.path('showQuestions');
+			
 		});
 	}
 
@@ -35,7 +35,10 @@ myApp.factory('answerFactory', function ($http, $location, $routeParams) {
 		console.log('liking in factory', answer);
 		$http.post('/likeanswer', answer).success(function (output) {
 			callback(output);
+
 		});
+		$route.reload();
+
 	}
 
 	// factory.getThisAnswer = function (callback) {
