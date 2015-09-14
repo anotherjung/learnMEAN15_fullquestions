@@ -7,12 +7,12 @@
   		<span class="white-text">
     <h3>question: {{oneQuestion.name}}</h3>
     <p>context: {{oneQuestion.context}}</p>
-    <p>created: {{oneQuestion.created}}</p>
+    <p>created: {{oneQuestion.created | date:'MMMM d, yyyy - h:mm a'}}</p>
 	</span>
     </div>
 </div>
 
-<div ng-repeat="answer in oneQuestion.answers">
+<div ng-repeat="answer in oneQuestion.answers | orderBy:'-like'">
 	 <div class="card">
 	 	<div class="card-content grey darken-4">
 	 	<span class="white-text">
@@ -20,7 +20,7 @@
  
 <h3>answer: {{answer.answering}}</h3>
 <p>supporting: {{answer.supporting}}</p>
-<p>date: {{answer.created_date}}</p>
+<p>date: {{answer.created_date | date:'MMMM d, yyyy - h:mm a'}}</p>
 </span>
 <div>
 </div>
