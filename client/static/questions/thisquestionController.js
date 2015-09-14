@@ -1,4 +1,4 @@
-myApp.controller('thisquestionController', function ($scope, $routeParams, questionFactory, userFactory) { 
+myApp.controller('thisquestionController', function ($scope, $routeParams, questionFactory, userFactory, answerFactory) { 
  console.log('thisquestionController $routeParams.id req',$routeParams.id);
 
 	//3 create scope for array 
@@ -12,5 +12,15 @@ myApp.controller('thisquestionController', function ($scope, $routeParams, quest
 		$scope.oneQuestion = data;
 		console.log('questionFactory.getThisQuestion res',data);
 	});
+
+	$scope.like = function(answer) {
+		answerFactory.like(answer);
+		// answerFactory.getThisAnswer(answer, function(data){
+		// 	$scope.oneQuestion = data;
+		// 	console.log('like',data);			
+		// })
+
+	}
+
 
 }); //ends controller

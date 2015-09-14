@@ -1,6 +1,7 @@
 <!--1b add ng-controller directive to div container -->
 <div class="container" ng-controller='thisquestionController'>
 
+{{oneQuestion}}
 {{oneQuestion.name}}
 {{oneQuestion.context}}
 {{oneQuestion.created}}
@@ -13,6 +14,21 @@
     <p>created: {{oneQuestion.created}}</p>
 	</span>
     </div>
+</div>
+
+<div ng-repeat="answer in oneQuestion.answers">
+	 <div class="card">
+	 	<div class="card-content grey darken-4">
+	 	<span class="white-text">
+<input class="btn blue right" type="submit" value="likes: {{answer.like}}" ng-click="like(answer)"><h4>
+ 
+<h3>answer: {{answer.answering}}</h3>
+
+<p>supporting: {{answer.supporting}}</p>
+<p>date: {{answer.created_date}}</p>
+</span>
+<div>
+</div>
 </div>
 
 

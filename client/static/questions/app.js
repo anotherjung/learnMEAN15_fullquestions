@@ -18,6 +18,9 @@ myApp.config(function ($routeProvider) {
 	.when('/login',{
 		templateUrl: 'partials/view4.html'
 	})
+	.when('/addAnswer/:id?',{
+		templateUrl: 'partials/view5.html'
+	})	
 	// .otherwise({
 	// 	redirectTo: '/'
 	// });

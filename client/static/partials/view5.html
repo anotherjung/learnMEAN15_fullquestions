@@ -1,0 +1,46 @@
+<!--1b add ng-controller directive to div container -->
+<div class="container" ng-controller='answerController'>
+
+
+
+	
+  <div class="card">
+  	<div class="card-content grey darken-1">
+  		<span class="white-text">
+    <h3>question: {{oneQuestion.name}}</h3>
+    <p>context: {{oneQuestion.name}}</p>
+    <p>created: {{oneQuestion.created}}</p>
+	</span>
+    </div>
+</div>
+
+
+
+
+  	<form class='form'>
+
+  		<div class="col s12 m6 l3">    
+  			<label for="name1">Your Answer</label> 
+  			<!--2b ng-model -->
+  			<input id="name1" class='form-control' type='text' name='name' ng-model='newAnswer.answering'>
+  		</div>
+
+  		<div class="col s12 m6 l3">    
+  			<label for="context1">Any supporting details to your answer:</label> 
+  			<!--2b ng-model -->
+  			<input id="context1" class='form-control' type='text' name='context' ng-model='newAnswer.supporting'>
+  		</div>
+
+
+  		<div class="col s12 m6 l3"> 
+  			<!--2c ng-click -->
+  			<input class= "btn green" type="submit" value="Submit" ng-click='addAnswer()'>
+  		</div>
+
+  	</form>
+
+
+
+
+hi add answer
+</div>

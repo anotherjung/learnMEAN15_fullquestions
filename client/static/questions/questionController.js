@@ -1,28 +1,32 @@
-myApp.controller('questionController', function ($scope, questionFactory, userFactory) { 
+myApp.controller('questionController', function ($scope, $location, questionFactory, userFactory) { 
 	//3 create scope for array 
 	$scope.questions = [];
 	//3 get data from factory
 	questionFactory.getQuestions(function (data){
 		$scope.questions = data;
-		console.log('questionFactory.getQuestions', data);
+		//console.log('questionFactory.getQuestions', data);
 	})
 
 	//2a ng-click add
-	$scope.addQuestion = function () {				
+	$scope.addQuestion = function (newQuestion) {				
 		console.log('con addQuestion',$scope.newQuestion);
+				//6 use factory method, if new customer name is unique
+				if(!questionFactory.checkQuestion($scope.newQuestion.name)){
+					console.log('2');
+					//$('.error').addClass('hide');					
+					//6 passing object to factory
+					questionFactory.addQuestion($scope.newQuestion);
+					$('.error').addClass('hide');
+					$('.success').removeClass('hide');
 
-		//6 use factory method, if new customer name is unique
-		if(!questionFactory.checkQuestion($scope.newQuestion.name)){
-			console.log('2');
-			//$('.error').addClass('hide');					
-			//6 passing object to factory
-			questionFactory.addQuestion($scope.newQuestion);
-			$('.error').addClass('hide');
-		} else {
-			$('.error').removeClass('hide');
-		}
-		//clear form values by giving it an empty object
-		$scope.newQuestion = {};
+				} else {
+					$('.error').removeClass('hide');
+
+				}
+				//clear form values by giving it an empty object
+				$scope.newQuestion = {};
+
+
 	}
 
 	//5c ng-click delete

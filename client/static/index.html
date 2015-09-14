@@ -5,7 +5,7 @@
 <body ng-app='myApp'>
 	<!--5 add navbar for $routeProvider -->
 	<div class="container">
-	 <a href="#/">Home</a> | <a href="#/addQuestion">add a question</a> <span class="right"> <a href="#/logout">logout</a></span>
+	 <a href="#/">Home</a> | <a href="#/addQuestion">add a question</a> <span class="right"> <a href="#/">logout</a></span>
 	</div>
 
 	<div ng-view="">
@@ -23,6 +23,9 @@
 	<script src='questions/questionController.js'/></script>
 	<script src='questions/questionFactory.js'/></script>	
 	<script src='questions/thisquestionController.js'/></script>	
+	<script src='questions/answerController.js'/></script>
+	<script src='questions/answerFactory.js'/></script>
+
 
 </body>
 </html>

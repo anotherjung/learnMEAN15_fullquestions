@@ -14,14 +14,14 @@ module.exports =  {
 	         console.log('err con show', err);
 	       } else {
 	         res.json(results);
-	         console.log('con show', results)
+	         //console.log('con show', results)
 	       }
 		})
 	},
 
 	addquestion: function(req, res) {
 		console.log('con addquestion', req.body);
-		var questions = new question({name:req.body.name, created:Date.now()});
+		var questions = new question({name:req.body.name, context: req.body.context, created:Date.now()});
 		questions.save(function(err) {
 			// console.log('11');
 			if(err) {
@@ -33,7 +33,8 @@ module.exports =  {
 	},
 
 	getOneQuestion: function (req, res) {
-		console.log('questions.js getOneQuestion req.query.id', req.query.id);
+		//console.log('11questions.js getOneQuestion req.query.id', req.query.id);
+		
 		question.findOne({_id:req.query.id})
 		.populate('answers')
 		.exec(function (err, allAnswers) {

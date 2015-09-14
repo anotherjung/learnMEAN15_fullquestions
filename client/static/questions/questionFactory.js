@@ -13,7 +13,7 @@ myApp.factory('questionFactory', function ($http, $location) {
 	var factory = {};
 
 	factory.getThisQuestion = function(thisQuestion, callback) {
-		console.log('factory.getThisQuestion', thisQuestion)
+		//console.log('factory.getThisQuestion', thisQuestion)
 		$http({url:'/getquestion', method:'GET', params:{id:thisQuestion}}).success(function (output) {
 			callback(output);
 		});
@@ -24,11 +24,11 @@ myApp.factory('questionFactory', function ($http, $location) {
 		console.log('here in factory');
 		//ask nodejs route
 		$http.get('/getquestions').success(function(output) {
-			console.log('factory.getQuestions http');
+			//console.log('factory.getQuestions http');
 			questions = output;
 			//pass the heros object to callback
 			callback(questions);
-			console.log('factory.getQuestions',questions);
+			//console.log('factory.getQuestions',questions);
 		})
 	}
 
@@ -43,7 +43,7 @@ myApp.factory('questionFactory', function ($http, $location) {
 			//questions.push({name:info.name})
 			console.log('baby added question', info);
 			//reload the page to fresh the data
-			$location.path('#/');
+			// $location.path('showQuestions');
 		})
 	}	
 

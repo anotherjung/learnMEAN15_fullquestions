@@ -6,6 +6,6 @@ myApp.controller('userController', function ($scope, userFactory, $location) {
 	userFactory.login(currentUser, function (data) {
 		$scope.thisUser = data;
 		console.log('serFactory.login', $scope.thisUser.name);
-		$location.path('/showQuestions');
+		$location.path('showQuestions');
 	})
 })

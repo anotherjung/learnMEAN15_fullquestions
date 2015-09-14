@@ -2,17 +2,26 @@
 <div class="container" ng-controller='questionController'>
 
 		<div class="row">
-			{{ thisUser.name }}
 	    <div class="col s12"> 
 		    <h4 class="center">Add a new question</h4>
-		    <h5 class="error hide red-text">Name already exist. Please enter new name</h5>
+		    <h5 class="error hide red-text">Question already exist. Please try again. Thank You.</h5>
+		    <h5 class="success hide green-text">Awesome, Your question has be submitted. </h5>
+
+
 		  	<form class='form'>
 
 		  		<div class="col s12 m6 l3">    
-		  			<label for="name1">Name:</label> 
+		  			<label for="name1">Question:</label> 
 		  			<!--2b ng-model -->
 		  			<input id="name1" class='form-control' type='text' name='name' ng-model='newQuestion.name'>
 		  		</div>
+
+		  		<div class="col s12 m6 l3">    
+		  			<label for="context1">Context of the Question:</label> 
+		  			<!--2b ng-model -->
+		  			<input id="context1" class='form-control' type='text' name='context' ng-model='newQuestion.context'>
+		  		</div>
+
    
 		  		<div class="col s12 m6 l3"> 
 		  			<!--2c ng-click -->

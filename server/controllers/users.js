@@ -8,12 +8,12 @@ module.exports = (function () {
 	return {
 
 		login: function (req, res) {
-			console.log('at users controller');
-			console.log(req.body);
+			//console.log('at users controller');
+			//console.log(req.body);
 			User.findOne({name: req.body.name}, function (err, gotOne) {
 				if(gotOne) {
-					console.log('existing user found');
-					console.log(gotOne);
+					//console.log('existing user found');
+					//console.log(gotOne);
 					res.json(gotOne);
 				} else {
 					var u = new User({name: req.body.name});
@@ -22,8 +22,8 @@ module.exports = (function () {
 							console.log(err);
 						} else {
 							res.json(result);
-							console.log('this is the result');
-							console.log(result);
+							//console.log('this is the result');
+							//console.log(result);
 						}
 					})
 				}

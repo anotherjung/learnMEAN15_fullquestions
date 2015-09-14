@@ -1,35 +1,34 @@
 	<!--1b add ng-controller directive to div container -->
 	  <div class="container" ng-controller='questionController'>
 	  	<div class="row">
-
+<!-- {{questions}} -->
 	  	 <div class="col s12"> 
 	  	 	<!--4 filter_name -->
-	  	 	<label for="search1">Search:</label>
+	  	 	<label for="search1">Search:{{currentUser}}</label>
 	  	 	<input id="search1" type="text" ng-model="filter_name">
 
-	  	 	<table class="center-align">
-	  	 		<tr ng-repeat="question in questions | filter:filter_name | orderBy:'likes'">
+	  	 	<table class="center-align striped">
+
+				<thead>
+					<tr>
+						<th data-field="name">Name</th>
+						<th data-field="answers">Answers</th>
+						<th data-field="action">Actions</th>
+					</tr>
+				</thead>
+
+	  	 		<tbody>
+	  	 		<tr ng-repeat="question in questions | filter:filter_name | orderBy:'-created'">
 	  	 			<td><span ng-bind="question.name"></span></td>
-	  	 			<td><span ng-bind="question.countAnswers"></span></td>
+	  	 			<td><span ng-bind="question.answers.length"></span></td>
 	  	 			<td>
 	  	 				<a class="waves-effect waves-light btn blue" href="#/showQuestion/{{question._id}}">Show</a>  
 	  	 				<a class="waves-effect waves-light btn blue" href="#/addAnswer/{{question._id}}">Answer</a> 
 	  	 			</td>
 	  	 		</tr>
+	  	 		</tbody>
 	  	 	</table>
 
-		    <ul class="collection with-header">
-		    	<li class="collection-header"><h4>Question</h4></li>
-		    	<!--4 filter_name  orderBy -->
-		       <li class="collection-item" ng-repeat="question in questions | filter:filter_name | orderBy:'created'">
-
-		       	<span ng-bind="question.name"></span>
-		       	<span ng-bind="question.created | date:'MMMM d yyyy hh mm ss'"></span>
-		       	<!--5c delete -->
-	<!-- 	       	<a href="#/partials2" ng-click='removeQuestion(question)'>delete</a> -->
-		       </li>
-		    </ul>
 		</div>
 		</div>
-
 	  </div>
